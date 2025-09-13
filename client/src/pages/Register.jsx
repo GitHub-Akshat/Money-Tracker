@@ -14,7 +14,7 @@ function Register() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await API.post("/auth/register", { username, email, password });
+      await API.post("/api/auth/register", { username, email, password });
       toast.success("Account created! Please log in.");
       navigate("/login");
     } catch (err) {

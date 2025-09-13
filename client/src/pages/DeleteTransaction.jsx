@@ -13,7 +13,7 @@ function DeleteTransaction() {
     useEffect(() => {
         async function fetchTx() {
             try {
-                const res = await API.get(`/transactions/${id}`);
+                const res = await API.get(`/api/transactions/${id}`);
                 setTransaction(res.data);
             } catch (err) {
                 console.error("Error fetching transaction", err);
@@ -26,7 +26,7 @@ function DeleteTransaction() {
 
     async function handleDelete() {
         try {
-            await API.delete(`/transactions/${id}`);
+            await API.delete(`/api/transactions/${id}`);
             toast.success("Transaction deleted!");
             navigate("/");
         } catch (err) {

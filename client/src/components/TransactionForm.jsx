@@ -10,7 +10,7 @@ export default function TransactionForm({ editMode }) {
 
   useEffect(() => {
     if (editMode && id) {
-      API.get(`/transactions/${id}`).then(res => {
+      API.get(`/api/transactions/${id}`).then(res => {
         setForm({
           title: res.data.title,
           amount: res.data.amount,
@@ -25,10 +25,10 @@ export default function TransactionForm({ editMode }) {
     e.preventDefault();
     try {
       if (editMode) {
-        await API.put(`/transactions/${id}`, form);
+        await API.put(`/api/transactions/${id}`, form);
         toast.success("Transaction updated!");
       } else {
-        await API.post("/transactions", form);
+        await API.post("/api/transactions", form);
         toast.success("Transaction added!");
       }
       navigate("/");

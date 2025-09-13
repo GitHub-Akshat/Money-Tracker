@@ -7,7 +7,7 @@ export default function TransactionList() {
 
   async function fetchTransactions() {
     try {
-      const res = await API.get("/transactions");
+      const res = await API.get("/api/transactions");
       setTransactions(res.data);
     } catch (err) {
       console.error("Error fetching transactions", err);

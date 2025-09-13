@@ -8,7 +8,7 @@ export default function Charts() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    API.get("/transactions").then(res => {
+    API.get("/api/transactions").then(res => {
       const byCategory = {};
       res.data.forEach(tx => {
         byCategory[tx.category] = (byCategory[tx.category] || 0) + tx.amount;
